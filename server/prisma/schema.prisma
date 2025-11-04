@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model EditJob {
+  id String @id @default(uuid())
+  inputUrl String
+  outputUrl String?
+  prompt String
+  parsedCommand Json?
+  status JobStatus @default(PENDING)
+  parentJobId String? // Reference to previous edit in chain
+  parentJob EditJob? @relation("EditChain", fields: [parentJobId], references: [id])
+  childJobs EditJob[] @relation("EditChain")
+  editSequence Int @default(1) // Track sequence number in edit chain
+  originalVideoUrl String? // Store the original video URL for reference
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum JobStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+}
