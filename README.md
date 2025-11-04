@@ -1,6 +1,6 @@
-# VideoSure
+# Recutz
 
-VideoSure is a human-in-the-loop video editing platform that turns a short natural-language brief into production-ready cuts. It pairs a cinematic-first React client, a resilient TypeScript orchestration backend, and a Python/FFmpeg execution engine that keeps audio, timing, and metadata intact through multi-step edits. The result is an end-to-end workflow that helps editors iterate quickly without surrendering control to a black-box AI.
+Recutz is a human-in-the-loop video editing platform that turns a short natural-language brief into production-ready cuts. It pairs a cinematic-first React client, a resilient TypeScript orchestration backend, and a Python/FFmpeg execution engine that keeps audio, timing, and metadata intact through multi-step edits. The result is an end-to-end workflow that helps editors iterate quickly without surrendering control to a black-box AI.
 
 ## Why This Isn’t Just Another “AI Wrapper”
 - **Structured reasoning, not prompts-in/prompts-out** – edit requests are parsed into a deterministic action graph (trim, crop, gamma, etc.) before any processing happens, so every decision is inspectable and replayable.
